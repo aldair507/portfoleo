@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<PorfoleoSection />} />
-      </Routes>
-    </Router>
+    <div className="w-[80%] mx-auto">
+      <Router basename="/portfoleo">
+        <Routes>
+          <Route path="/" element={<PorfoleoSection />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
