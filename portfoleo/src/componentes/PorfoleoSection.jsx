@@ -107,31 +107,31 @@ const Portfolio = () => {
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/30 to-purple-900/30" />
             <div className="absolute inset-0">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[24rem] h-[24rem] md:w-[30rem] md:h-[30rem] bg-indigo-500/20 rounded-full blur-3xl" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] md:w-[25rem] md:h-[25rem] bg-purple-500/20 rounded-full blur-3xl" />
             </div>
 
             <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(to_right,rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]" />
           </div>
 
-          <div className="relative z-10 bg-black/50 p-8 rounded-2xl top-1 backdrop-blur-sm shadow-[0_0_50px_-12px_rgba(99,102,241,0.4)]">
+          <div className="relative z-10 bg-black/50 p-6 sm:p-8 rounded-2xl top-1 backdrop-blur-sm shadow-[0_0_50px_-12px_rgba(99,102,241,0.4)]">
             <img
               src={foto}
               alt="Jose Aldair Torres"
-              className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.5)]"
+              className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mx-auto mb-4 border-4 border-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.5)]"
             />
-            <h1 className="text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 drop-shadow-[0_0_10px_rgba(99,102,241,0.3)]">
+            <h1 className="text-3xl sm:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 drop-shadow-[0_0_10px_rgba(99,102,241,0.3)]">
               Jose Aldair Torres
             </h1>
-            <p className="text-2xl text-indigo-300 font-light drop-shadow-[0_5px_15px_rgba(99,102,241,0.4)]">
+            <p className="text-xl sm:text-2xl text-indigo-300 font-light drop-shadow-[0_5px_15px_rgba(99,102,241,0.4)]">
               Desarrollador Full-Stack
             </p>
 
-            <div className="mt-4 w-32 h-1 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full shadow-[0_0_20px_rgba(99,102,241,0.5)]" />
+            <div className="mt-4 w-20 sm:w-32 h-1 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full shadow-[0_0_20px_rgba(99,102,241,0.5)]" />
           </div>
 
-          <div className="absolute top-4 left-4 w-16 h-16 border-t-2 border-l-2 border-indigo-500/30" />
-          <div className="absolute bottom-4 right-4 w-16 h-16 border-b-2 border-r-2 border-indigo-500/30" />
+          <div className="absolute top-4 left-4 w-12 h-12 sm:w-16 sm:h-16 border-t-2 border-l-2 border-indigo-500/30" />
+          <div className="absolute bottom-4 right-4 w-12 h-12 sm:w-16 sm:h-16 border-b-2 border-r-2 border-indigo-500/30" />
         </header>
 
         <PortfolioSection title="Sobre mí" icon={<Code className="w-8 h-8" />}>
@@ -173,26 +173,136 @@ const Portfolio = () => {
           title="Proyectos"
           icon={<Briefcase className="w-10 h-10" />}
         >
-          <PortfolioItem
-            title="Aplicación móvil con soporte web para motoviajeros"
-            description="Aplicación diseñada para motoviajeros en Colombia. Permite trazar rutas personalizadas, gestionar información sobre motocicletas y calcular presupuestos de combustible, promoviendo el moto-turismo responsable."
-            link="#"
-            img={rpm}
-            technologies={["React", "JavaScript", "MongoDB", "CSS"]}
-          />
-          <PortfolioItem
-            title="Aserhi project"
-            description="Aplicación web diseñada para uso interno, desarrollada con dos módulos: Contratación y Talento Humano. Permite a los empleados registrar clientes potenciales, crear propuestas y, tras la aprobación, generar contratos. Integra gestión de permisos de usuario y acceso seguro a documentos, con opciones de descarga y visualización de archivos."
-            link="#"
-            img={asheri}
-            technologies={[
-              "React",
-              "Node.js",
-              "MySql",
-              "Express",
-              "Tailwind CSS",
-            ]}
-          />
+          {/* Mobile View */}
+          <div className="md:hidden space-y-8">
+            {/* First Project - Mobile */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700">
+              <img
+                src={rpm}
+                alt="Rutas para Moteros"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-5">
+                <h2 className="text-2xl font-bold text-indigo-400 mb-2">
+                  Aplicación móvil con soporte web para motoviajeros
+                </h2>
+                <p className="text-gray-300 mb-4">
+                  Aplicación diseñada para motoviajeros en Colombia. Permite
+                  trazar rutas personalizadas, gestionar información sobre
+                  motocicletas y calcular presupuestos de combustible,
+                  promoviendo el moto-turismo responsable.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["React", "JavaScript", "MongoDB", "CSS"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-indigo-900 text-indigo-200 px-3 py-1 rounded-full text-xs"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Second Project - Mobile */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700">
+              <img
+                src={asheri}
+                alt="Aserhi Project"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-5">
+                <h2 className="text-2xl font-bold text-indigo-400 mb-2">
+                  Aserhi project
+                </h2>
+                <p className="text-gray-300 mb-4">
+                  Aplicación web diseñada para uso interno, desarrollada con dos
+                  módulos: Contratación y Talento Humano. Permite a los
+                  empleados registrar clientes potenciales, crear propuestas y,
+                  tras la aprobación, generar contratos.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["React", "Node.js", "MySql", "Express", "Tailwind CSS"].map(
+                    (tech) => (
+                      <span
+                        key={tech}
+                        className="bg-indigo-900 text-indigo-200 px-3 py-1 rounded-full text-xs"
+                      >
+                        {tech}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop View */}
+          <div className="hidden md:grid md:grid-cols-2 md:gap-8">
+            {/* First Project - Desktop */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700 flex flex-col">
+              <img
+                src={rpm}
+                alt="Rutas para Moteros"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6 flex-grow flex flex-col">
+                <h2 className="text-3xl font-bold text-indigo-400 mb-4">
+                  Aplicación móvil con soporte web para motoviajeros
+                </h2>
+                <p className="text-gray-300 mb-6 flex-grow">
+                  Aplicación diseñada para motoviajeros en Colombia. Permite
+                  trazar rutas personalizadas, gestionar información sobre
+                  motocicletas y calcular presupuestos de combustible,
+                  promoviendo el moto-turismo responsable.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {["React", "JavaScript", "MongoDB", "CSS"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-indigo-900 text-indigo-200 px-4 py-2 rounded-full text-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Second Project - Desktop */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700 flex flex-col">
+              <img
+                src={asheri}
+                alt="Aserhi Project"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6 flex-grow flex flex-col">
+                <h2 className="text-3xl font-bold text-indigo-400 mb-4">
+                  Aserhi project
+                </h2>
+                <p className="text-gray-300 mb-6 flex-grow">
+                  Aplicación web diseñada para uso interno, desarrollada con dos
+                  módulos: Contratación y Talento Humano. Permite a los
+                  empleados registrar clientes potenciales, crear propuestas y,
+                  tras la aprobación, generar contratos. Integra gestión de
+                  permisos de usuario y acceso seguro a documentos.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {["React", "Node.js", "MySql", "Express", "Tailwind CSS"].map(
+                    (tech) => (
+                      <span
+                        key={tech}
+                        className="bg-indigo-900 text-indigo-200 px-4 py-2 rounded-full text-sm"
+                      >
+                        {tech}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </PortfolioSection>
         <PortfolioSection title="Experiencias">
           <div className="flex space-x-6">
