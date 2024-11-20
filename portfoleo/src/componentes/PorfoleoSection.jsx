@@ -114,7 +114,7 @@ const Portfolio = () => {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(to_right,rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]" />
           </div>
 
-          <div className="relative z-10 bg-black/50 p-6 sm:p-8 rounded-2xl top-1 backdrop-blur-sm shadow-[0_0_50px_-12px_rgba(99,102,241,0.4)]">
+          <div className="relative z-10 bg-black/50 p-6 sm:p-8 rounded-2xl top-3 backdrop-blur-sm shadow-[0_0_50px_-12px_rgba(99,102,241,0.4)]">
             <img
               src={foto}
               alt="Jose Aldair Torres"
