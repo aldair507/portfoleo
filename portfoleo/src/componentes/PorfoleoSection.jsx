@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import foto from "../assets/aldair.jpg";
+import rpm from "../assets/rpm.png";
+import asheri from "../assets/asheri.png";
 import {
   Code,
   Briefcase,
@@ -27,7 +30,7 @@ const PortfolioSection = ({ title, children, icon }) => {
         }
       },
       {
-        threshold: 0.1, // Cambia este valor para ajustar cuándo el elemento se considera visible
+        threshold: 0.1, // Adjust this value for when the element is considered visible
       }
     );
 
@@ -65,23 +68,29 @@ const SkillItem = ({ skill, icon: Icon }) => (
   </div>
 );
 
-const PortfolioItem = ({ title, description, link }) => (
+const PortfolioItem = ({ title, description, link, img, technologies }) => (
   <div className="mb-6 p-6 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700">
-    <h3 className="text-2xl font-semibold mb-3 text-indigo-400">{title}</h3>
-    <p className="text-gray-300 mb-4">{description}</p>
-    <a
-      href={link}
-      className="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-medium"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Ver proyecto
-      <ChevronRight className="w-4 h-4 ml-1" />
-    </a>
+    <div className="flex items-start">
+      <img src={img} alt={title} className="w-auto h-52 rounded-md mr-6" />
+      <div>
+        <h3 className="text-3xl font-bold text-indigo-400 mb-4">{title}</h3>
+        <p className="text-gray-300 mb-6">{description}</p>
+        <div className="flex flex-wrap items-center text-gray-400 text-sm mb-6">
+          {technologies.map((tech, index) => (
+            <span
+              key={index}
+              className="bg-gray-700 px-3 py-1 rounded-md mr-2 mb-2"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
   </div>
 );
 
-const PorfoleoSection = () => {
+const Portfolio = () => {
   const skills = [
     { name: "JavaScript", icon: FileJson },
     { name: "React", icon: LogIn },
@@ -105,7 +114,12 @@ const PorfoleoSection = () => {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(to_right,rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]" />
           </div>
 
-          <div className="relative z-10 bg-black/50 p-8 rounded-2xl backdrop-blur-sm shadow-[0_0_50px_-12px_rgba(99,102,241,0.4)]">
+          <div className="relative z-10 bg-black/50 p-8 rounded-2xl top-1 backdrop-blur-sm shadow-[0_0_50px_-12px_rgba(99,102,241,0.4)]">
+            <img
+              src={foto}
+              alt="Jose Aldair Torres"
+              className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.5)]"
+            />
             <h1 className="text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 drop-shadow-[0_0_10px_rgba(99,102,241,0.3)]">
               Jose Aldair Torres
             </h1>
@@ -124,10 +138,16 @@ const PorfoleoSection = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-xl blur-xl" />
             <p className="text-xl leading-relaxed text-gray-300 max-w-3xl mx-auto relative bg-black/20 backdrop-blur-sm p-6 rounded-xl">
-              Soy un apasionado desarrollador full-stack con +1 de experiencia
-              en la creación de aplicaciones web robustas y escalables. Me
-              especializo en JavaScript, React, Node.js y bases de datos SQL y
-              NoSQL.
+              Soy un desarrollador de software full-stack con más de un año de
+              experiencia en la creación de aplicaciones web. También he
+              participado en el desarrollo de una aplicación móvil, aunque mi
+              especialidad se centra más en la creación de aplicaciones web
+              robustas y escalables. Me especializo en JavaScript, React,
+              Node.js y bases de datos SQL y NoSQL. Me destaco por mi rápida
+              capacidad de aprendizaje y adaptación a nuevos entornos. Mi
+              objetivo es ofrecer soluciones que generen un impacto positivo,
+              mientras busco oportunidades para adquirir más experiencia y
+              colaborar aplicando mis habilidades.
             </p>
           </div>
         </PortfolioSection>
@@ -151,28 +171,116 @@ const PorfoleoSection = () => {
         {/* Proyectos section */}
         <PortfolioSection
           title="Proyectos"
-          icon={<Briefcase className="w-8 h-8" />}
+          icon={<Briefcase className="w-10 h-10" />}
         >
-          <div className="grid md:grid-cols-2 gap-8">
-            <PortfolioItem
-              title="E-commerce Platform"
-              description="Una plataforma de comercio electrónico completa construida con React y Node.js."
-              link="#"
-            />
-            <PortfolioItem
-              title="Task Management App"
-              description="Una aplicación de gestión de tareas con autenticación de usuarios y almacenamiento en tiempo real."
-              link="#"
-            />
-            <PortfolioItem
-              title="Blog Personal"
-              description="Un blog personal construido con Gatsby y GraphQL para un rendimiento óptimo."
-              link="#"
-            />
+          <PortfolioItem
+            title="Aplicación móvil con soporte web para motoviajeros"
+            description="Aplicación diseñada para motoviajeros en Colombia. Permite trazar rutas personalizadas, gestionar información sobre motocicletas y calcular presupuestos de combustible, promoviendo el moto-turismo responsable."
+            link="#"
+            img={rpm}
+            technologies={["React", "JavaScript", "MongoDB", "CSS"]}
+          />
+          <PortfolioItem
+            title="Aserhi project"
+            description="Aplicación web diseñada para uso interno, desarrollada con dos módulos: Contratación y Talento Humano. Permite a los empleados registrar clientes potenciales, crear propuestas y, tras la aprobación, generar contratos. Integra gestión de permisos de usuario y acceso seguro a documentos, con opciones de descarga y visualización de archivos."
+            link="#"
+            img={asheri}
+            technologies={[
+              "React",
+              "Node.js",
+              "MySql",
+              "Express",
+              "Tailwind CSS",
+            ]}
+          />
+        </PortfolioSection>
+        <PortfolioSection title="Experiencias">
+          <div className="flex space-x-6">
+            {/* Job Info Card */}
+            <div className="bg-gray-800 p-14 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-full">
+              {/* Job Title and Company */}
+              <h1 className="text-3xl font-bold mb-2 text-indigo-400">
+                Full Stack Developer
+              </h1>
+              <h2 className="text-xl font-semibold mb-4 text-gray-300">
+                ASERHI SAS ESP
+              </h2>
+
+              <ul className="list-disc list-inside space-y-2 text-lg text-gray-300">
+                <li>
+                  Colaboré en el desarrollo de una aplicación web utilizando
+                  JavaScript, MySQL, React y Tailwind CSS.
+                </li>
+                <li>
+                  Implementé funcionalidades como dashboards interactivos con
+                  estadísticas dinámicas, además de la descarga de reportes en
+                  formato PDF, de acuerdo con los filtros definidos por un
+                  buscador que implementé.
+                </li>
+                <li>
+                  Colaboré en la gestión de residuos, propuestas y contratos,
+                  trabajando de manera efectiva en equipo.
+                </li>
+              </ul>
+            </div>
+
+            {/* Timeline */}
+            <div className="relative flex flex-col items-center">
+              <div className="text-sm font-medium text-gray-500 mb-2">
+                Septiembre 2023
+              </div>
+              <div className="h-64 w-2 bg-indigo-200 relative rounded">
+                <div
+                  style={{ height: "80%" }}
+                  className="bg-indigo-500 absolute bottom-0 left-0 w-full"
+                ></div>
+              </div>
+              <div className="text-sm font-medium text-gray-500 mt-2">
+                Octubre 2024
+              </div>
+            </div>
+          </div>
+
+          {/* Remove the margin here */}
+          <div className="flex space-x-6 mt-12">
+            <div className="bg-gray-800 p-16 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700 w-full">
+              <h1 className="text-3xl font-bold mb-2 text-indigo-400">
+                Backend Developer, Mobile Developer
+              </h1>
+              <h2 className="text-xl font-semibold mb-4 text-gray-300">
+                Rutas para Moteros
+              </h2>
+
+              <ul className="list-disc list-inside space-y-2 text-lg text-gray-300">
+                <li>
+                  Participé en la creación del backend para este proyecto.
+                </li>
+                <li>
+                  También estuve a cargo del desarrollo de la parte móvil,
+                  gestionando la subida de imágenes mediante bases de datos en
+                  Firebase.
+                </li>
+              </ul>
+            </div>
+
+            {/* Timeline */}
+            <div className="relative flex flex-col items-center">
+              <div className="text-sm font-medium text-gray-500 mb-2">
+                Enero 2024
+              </div>
+              <div className="h-64 w-2 bg-indigo-200 relative rounded">
+                <div
+                  style={{ height: "80%" }}
+                  className="bg-indigo-500 absolute bottom-0 left-0 w-full"
+                ></div>
+              </div>
+              <div className="text-sm font-medium text-gray-500 mt-2">
+                Marzo 2024
+              </div>
+            </div>
           </div>
         </PortfolioSection>
 
-        {/* Contacto section con efectos mejorados */}
         <PortfolioSection title="Contacto" icon={<Mail className="w-8 h-8" />}>
           <div className="flex flex-col items-center justify-center mt-8">
             <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
@@ -220,4 +328,4 @@ const PorfoleoSection = () => {
   );
 };
 
-export default PorfoleoSection;
+export default Portfolio;
