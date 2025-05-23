@@ -6,8 +6,7 @@ import "./index.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <div className="bg-black">
-    <App />
+      <App />
     </div>
- 
   </StrictMode>
 );
